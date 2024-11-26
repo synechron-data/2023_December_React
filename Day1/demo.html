@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo.html</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            getName = () => {
+                this.name;
+            }
+
+            setName = (name) => {
+                this.name = name;
+            }
+        }
+
+        function createManyPeople(count) {
+            let people = [];
+            const start = performance.now();
+            for (let i = 0; i < count; i++) {
+                people.push(new Person(`Person ${i}`));
+            }
+            const end = performance.now();
+            return end - start; // returns the time in milliseconds
+        }
+
+        const timeTaken = createManyPeople(1000000);
+        console.log(`Time taken to create 1000000 Person objects: ${timeTaken} milliseconds`);
+    </script>
+</body>
+
+</html>
